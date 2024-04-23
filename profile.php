@@ -69,10 +69,6 @@
 <?php
 require_once('db.php');
 
-if (isset($_COOKIE['User'])) {
-    header("Location: profile.php");
-}
-
 $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'Web3');
 
 if (isset($_POST['submit'])) {
