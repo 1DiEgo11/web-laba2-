@@ -23,7 +23,7 @@
                     <div>Если да, то пройди <a href="/login.php">проверку</a></div>
                 <?php
                     } else {
-                        // подключение к БД
+                        header("Location: profile.php");
                     }
                 ?>
             </div>

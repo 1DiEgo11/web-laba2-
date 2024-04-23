@@ -45,7 +45,45 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="hello">
+                    Рады что ты, <?php echo $_COOKIE['User']; ?> вернулся!
+                </h1>
+            </div>
+            <div class="col-12">
+                <form action="profile.php" method="POST">
+                    <div class="form_profile"><input type="text" class="form" name="title" placeholder="Тему не забудь"></div>
+                    <div class="text_profile"><textarea class="text" name="text" cols="30" rows="10" placeholder="Записывай все свои грязные мыслишки..."></textarea></div>
+                    <div class="btn_reg"><button tupe="submit" id="btn_red" name="submit">Сохрани их!</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="js/button.js"></script>
 </body>
 
 </html>
+
+<?php
+require_once('db.php');
+
+if (isset($_COOKIE['User'])) {
+    header("Location: profile.php");
+}
+
+$link = mysqli_connect('127.0.0.1', 'root', 'kali', 'Web3');
+
+if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $main_text = $_POST['text'];
+
+    if (!$title || !$main_text) die ("Заполните все поля мальчик");
+
+    $sql = "INSERT INTO posts (title, main_text) VALUES ('$title', '$main_text')";
+
+    if (!mysqli_query($link, $sql)) die ("Твой пост г..но");
+}
+
+?>

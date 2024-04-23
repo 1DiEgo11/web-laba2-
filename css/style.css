@@ -73,3 +73,53 @@ body {
 .index {
     text-align: center;
 }
+
+.form_reg {
+    text-align: center;
+    width: 25%;
+    margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Reg {
+    text-align: center;
+}
+
+#btn_red {
+    border: none;
+    border-radius: 15px;
+    width: 15%;
+    height: 50px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+.btn_reg {
+    text-align: center;
+}
+
+.hello {
+    text-align: center;
+}
+
+.form_profile {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form {
+    width: 40%;
+}
+
+.text_profile {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text {
+    width: 100%;
+}
