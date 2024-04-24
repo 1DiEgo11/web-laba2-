@@ -21,9 +21,9 @@
         <div class="row">
             <div class="col-12">
                 <form action="registration.php" method="POST">
-                    <div class="row form_reg"><input class="form" type="email" name="email" placeholder="Куда картинки с аниме тянками будут приходить"></div>
-                    <div class="row form_reg"><input class="form" type="text" name="login" placeholder="Как тя звать смельчак"></div>
-                    <div class="row form_reg"><input class="form" type="password" name="password" placeholder="Твоя самая большая тайна)"></div>
+                    <div class="row form_reg"><input class="form1" type="email" name="email" placeholder="Куда картинки с аниме тянками будут приходить"></div>
+                    <div class="row form_reg"><input class="form1" type="text" name="login" placeholder="Как тя звать смельчак"></div>
+                    <div class="row form_reg"><input class="form1" type="password" name="password" placeholder="Твоя самая большая тайна)"></div>
                     <div class="btn_reg"><button type="submit" id="btn_red" name="submit">Нажимаешь и ты раб</button></div>
                 </form>
             </div>

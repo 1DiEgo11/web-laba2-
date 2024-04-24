@@ -15,15 +15,30 @@
     <div class="container">
         <div class="row">
             <div class="col-12 index">
-                <h1>Ты анимешник?</h1>
                 <?php 
                 if (!isset($_COOKIE['User'])) {
                 ?>
+                    <h1>Ты анимешник?</h1>
                     <div>Если нет, то <a href="/registration.php">стань им</a></div>
                     <div>Если да, то пройди <a href="/login.php">проверку</a></div>
                 <?php
                     } else {
-                        
+                ?>
+                <h1>Вот все мысли других анимешников</h1>
+                <?php
+                        $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'Web3');
+
+                        $sql = "SELECT * FROM posts";
+                        $res = mysqli_query($link, $sql);
+
+                        if (mysqli_num_rows($res) >  0) {
+                            while ($post = mysqli_fetch_array($res)) {
+                                echo "<a href='/posts.php?id=" . $post["id"] . "'>" . $post['title'] . "</a><br>";
+                            }
+                        }
+                        else {
+                                echo "Записей пока нет";
+                        }
                     }
                 ?>
             </div>
