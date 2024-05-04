@@ -53,9 +53,10 @@
                 </h1>
             </div>
             <div class="col-12">
-                <form action="profile.php" method="POST">
+                <form action="profile.php" method="POST" enctype="multipart/form-data" name="upload">
                     <div class="form_profile"><input type="text" class="form" name="title" placeholder="Тему не забудь"></div>
                     <div class="text_profile"><textarea class="text" name="text" cols="30" rows="10" placeholder="Записывай все свои грязные мыслишки..."></textarea></div>
+                    <div class="hello"><input type="file" name="file" /><br></div>
                     <div class="btn_reg"><button tupe="submit" id="btn_red" name="submit">Сохрани их!</button></div>
                 </form>
             </div>
@@ -80,6 +81,22 @@ if (isset($_POST['submit'])) {
     $sql = "INSERT INTO posts (title, main_text) VALUES ('$title', '$main_text')";
 
     if (!mysqli_query($link, $sql)) die ("Твой пост г..но");
+
+    if(!empty($_FILES["file"]))
+    {
+        if (((@$_FILES["file"]["type"] == "image/gif") || (@$_FILES["file"]["type"] == "image/jpeg")
+        || (@$_FILES["file"]["type"] == "image/jpg") || (@$_FILES["file"]["type"] == "image/pjpeg")
+        || (@$_FILES["file"]["type"] == "image/x-png") || (@$_FILES["file"]["type"] == "image/png"))
+        && (@$_FILES["file"]["size"] < 102400))
+        {
+            move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
+            echo "Load in:  " . "upload/" . $_FILES["file"]["name"];
+        }
+        else
+        {
+            echo "upload failed!";
+        }
+    }
 }
 
 ?>
